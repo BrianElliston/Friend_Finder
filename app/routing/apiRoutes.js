@@ -1,3 +1,5 @@
+// module.exports = function(app){}
+
 // Routes
 //====================================================
 app.get("/", function(req, res) {
