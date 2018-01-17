@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 
 
@@ -14,7 +14,12 @@ var PORT = 3000;
 
 
 
-//app.post((route/add))
+
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function(req, res) {
+  // res.send("Are You Lonely?")
+  res.sendFile(path.join(__dirname, "home.html"));
+});
 
 
 
