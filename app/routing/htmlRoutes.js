@@ -26,7 +26,7 @@ app.get("/", function(req, res) {
   
   })
 
-  app.post('/thanks', (req, res) => {res.sendFile(path.join(__dirname, "logic goes here"));
+  app.post('/thanks', (req, res) => {res.sendFile(path.join(__dirname, "../public/home.html"));
   
   })
   

@@ -1,19 +1,26 @@
-// module.exports = function(app){}
+var friends = require("../data/friends");
 
-// Routes
-//====================================================
-app.get("/", function(req, res) {
-    res.send("Welcome to the Star Wars Page!");
-  });
+module.exports = function(app){
+
+
+
+
   
   app.get("/:characters", function(req, res) {
-    var chosen = req.params.characters;
+    var responses = req.params.characters;
   
-    // What does this log?
-    console.log(chosen);
+    console.log(responses);
   
     res.end();
   });
-  //=======================================================
-  //THIS IS JUST COPIED AND PASTED NEEDS TO BE CLEANED UP
-  //======================================================
+
+  app.post("/survey.html", function(req, res){
+
+    res.send("Bob");
+  })
+
+}
+
+
+
+
