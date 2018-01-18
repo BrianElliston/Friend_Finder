@@ -23,10 +23,26 @@
       
     
 
-    <form action="http://localhost:8000/thanks" method="POST">
+    <form action="/thanks" method="POST">
       
 
-      
+      <div class="container">
+
+        
+<div><h2>Survey Questions</h2>
+  <h3><strong>Who are You?</strong></h3>
+  <h4>Name (Required)</h4>
+<input type="text" name="" id="name" class="form-control" required >
+
+<h4>Link to Photo Image (Required)</h4>
+<input type="text" name="" id="photo" class="form-control" required >
+
+<hr>
+
+<section>
+ 
+
+
       
       
       <div class="input-field col s12">
@@ -45,7 +61,7 @@
       <div class="input-field col s12">
         <h3>Question 2</h3>
         <h5>You love to travel.</h5>
-        <select id="question1">
+        <select id="question2">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -58,7 +74,7 @@
       <div class="input-field col s12">
         <h3>Question 3</h3>
         <h5>You shower once a week.</h5>
-        <select id="question1">
+        <select id="question3">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -71,7 +87,7 @@
       <div class="input-field col s12">
         <h3>Question 4</h3>
         <h5>You like your pets more than your in laws.</h5>
-        <select id="question1">
+        <select id="question4">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -84,7 +100,7 @@
       <div class="input-field col s12">
         <h3>Question 5</h3>
         <h5>You like long walks on the beach.</h5>
-        <select id="question1">
+        <select id="question5">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -97,7 +113,7 @@
       <div class="input-field col s12">
         <h3>Question 6</h3>
         <h5>You don't mind eating at Mcdonalds.</h5>
-        <select id="question1">
+        <select id="question6">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -110,7 +126,7 @@
       <div class="input-field col s12">
         <h3>Question 7</h3>
         <h5>You always look at the positive in any situation.</h5>
-        <select id="question1">
+        <select id="question7">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -123,7 +139,7 @@
       <div class="input-field col s12">
         <h3>Question 8</h3>
         <h5>You love live music.</h5>
-        <select id="question1">
+        <select id="question8">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -136,7 +152,7 @@
       <div class="input-field col s12">
         <h3>Question 9</h3>
         <h5>You keep your house immaculate.</h5>
-        <select id="question1">
+        <select id="question9">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -149,7 +165,7 @@
       <div class="input-field col s12">
         <h3>Question 10</h3>
         <h5>You would vote for Danald Trump.</h5>
-        <select id="question1">
+        <select id="question10">
           <option value="" disabled selected>Choose your option</option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -160,12 +176,50 @@
       </div>
       
       
-      
-      
-      </form>
+       </form>
     
-    
-    
+    </section>
+<br>
+
+<!-- Submit Button -->
+<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+  Submit</button>
+<h3></h3>
+
+
+    </div>
+
+    <script type="text/javascript">
+      // Question: What does this code do?
+      $("#submit").on("click", function(event) {
+        event.preventDefault();
+        var questions = {
+          name: $("#name").val().trim(),
+          photo: $("#photo").val().trim(),
+          scores: [
+            $("question1").val(),
+            $("question2").val(),
+            $("question3").val(),
+            $("question4").val(),
+            $("question5").val(),
+            $("question6").val(),
+            $("question7").val(),
+            $("question8").val(),
+            $("question9").val(),
+            $("question10").val(),
+
+
+          ]
+        };
+  
+        // Question: What does this code do??
+        $.post("/api/new", newCharacter)
+        .then(function(data) {
+          console.log(data);
+          alert("Adding character...");
+        });
+      });
+    </script>
     
     </body>
     </html> 
